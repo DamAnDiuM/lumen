@@ -12,7 +12,7 @@ async def on_ready():
 @client.command()
 async def ping(ctx):
     latency = round(client.latency * 1000)
-    await ctx.send(f"Pong!\n\nReplied in {latency}ms")
+    await ctx.send(f"Pong!\n\nReplied in {latency} ms")
 
 @client.command(aliases=['8ball', 'magic8ball'])
 async def шар(ctx, *, question):
