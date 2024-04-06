@@ -1,18 +1,30 @@
 import discord
-from discord.ext import commands
+from discord.ext import commands, tasks
 import random
+from itertools import cycle
 
 from assets.env import *
 
 client = commands.Bot(command_prefix='!', intents=discord.Intents.all())
 
+bot_status = cycle(['Пердит', 'Чушпанит', 'Бобеджонит'])
+
+@tasks.loop(seconds=5)
+async def change_status():
+    await client.change_presence(activity=discord.Game(next(bot_status)))
+
+    
 @client.event
 async def on_ready():
     print("Working\n-------")
+    change_status.start()
+
+
 @client.command()
 async def ping(ctx):
     latency = round(client.latency * 1000)
     await ctx.send(f"Pong!\n\nReplied in {latency} ms")
+
 
 @client.command(aliases=['8ball', 'magic8ball'])
 async def шар(ctx, *, question):
@@ -21,7 +33,10 @@ async def шар(ctx, *, question):
         responce = random.choice(responces)
     await ctx.reply(f"Мой ответ - {responce}")
     
+
 @client.command(aliases=['prefix'])
 async def префикс(ctx):
     ...
+
+
 client.run(token)
