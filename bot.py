@@ -37,12 +37,7 @@ async def on_ready():
     change_status.start()
 
 
-@client.command()
-async def ping(ctx):
-    latency = round(client.latency * 1000)
-    await ctx.send(f"Pong!\n\nReplied in {latency} ms")
-
-
+asyncio.run(main())
 @client.command(aliases=['8ball', 'magic8ball'])
 async def шар(ctx, *, question):
     with open("assets/command_files/8ballresponces.txt", encoding='utf-8') as f:
