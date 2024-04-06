@@ -9,7 +9,7 @@ client = commands.Bot(command_prefix='!', intents=discord.Intents.all())
 @client.event
 async def on_ready():
     print("Working\n-------")
-
+    print("goofus")
 @client.command()
 async def ping(ctx):
     latency = round(client.latency * 1000)
