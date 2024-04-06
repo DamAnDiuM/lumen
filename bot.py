@@ -27,7 +27,10 @@ async def load():
         if filename.endswith('.py'):
             await client.load_extension(f'cogs.{filename[:-3]}')
             
-
+async def main():
+    async with client:
+        await load()
+        await client.start(token)
 @client.event
 async def on_ready():
     print("Working\n-------")
@@ -51,6 +54,3 @@ async def шар(ctx, *, question):
 @client.command(aliases=['prefix'])
 async def префикс(ctx):
     ...
-
-
-client.run(token)
