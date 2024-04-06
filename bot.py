@@ -22,6 +22,11 @@ bot_status = cycle(bot_statuses)
 async def change_status():
     await client.change_presence(activity=discord.Game(next(bot_status)))
 
+async def load():
+    for filename in os.listdir("./cogs"):
+        if filename.endswith('.py'):
+            await client.load_extension(f'cogs.{filename[:-3]}')
+            
 
 @client.event
 async def on_ready():
