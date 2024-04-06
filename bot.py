@@ -7,13 +7,19 @@ from assets.env import *
 
 client = commands.Bot(command_prefix='!', intents=discord.Intents.all())
 
-bot_status = cycle(['Пердит', 'Чушпанит', 'Бобеджонит'])
+with open("assets/commands_list.txt", encoding="utf-8") as f:
+    bot_statuses = []
+    responces = f.readlines()
+    for responce in responces:
+        bot_statuses.append(client.command_prefix + responce.strip())
+
+bot_status = cycle(bot_statuses)
 
 @tasks.loop(seconds=5)
 async def change_status():
     await client.change_presence(activity=discord.Game(next(bot_status)))
 
-    
+
 @client.event
 async def on_ready():
     print("Working\n-------")
