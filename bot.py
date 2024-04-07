@@ -38,14 +38,10 @@ async def on_ready():
 
 
 asyncio.run(main())
-@client.command(aliases=['8ball', 'magic8ball'])
-async def шар(ctx, *, question):
-    with open("assets/command_files/8ballresponces.txt", encoding='utf-8') as f:
-        responces = f.readlines()
-        responce = random.choice(responces)
-    await ctx.reply(f"Мой ответ - {responce}")
-    
+
 
 @client.command(aliases=['prefix'])
-async def префикс(ctx):
-    ...
+async def префикс(ctx, prefix):
+    client.command_prefix = prefix
+    await ctx.send(f"Prefix changed to {prefix}")
+    

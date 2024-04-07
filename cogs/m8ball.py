@@ -3,7 +3,7 @@ from discord.ext import commands
 
 import random
 
-class m8ball(commands.Cog):
+class M8ball(commands.Cog):
     def __init__(self, client):
         self.client = client
 
@@ -20,4 +20,4 @@ class m8ball(commands.Cog):
 
 
 async def setup(client):
-    await client.add_cog(m8ball(client))
+    await client.add_cog(M8ball(client))
