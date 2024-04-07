@@ -38,10 +38,3 @@ async def on_ready():
 
 
 asyncio.run(main())
-
-
-@client.command(aliases=['prefix'])
-async def префикс(ctx, prefix):
-    client.command_prefix = prefix
-    await ctx.send(f"Prefix changed to {prefix}")
-    

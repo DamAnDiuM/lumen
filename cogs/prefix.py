@@ -12,10 +12,10 @@ class Prefix(commands.Cog):
     @commands.command(aliases=['префикс'])
     async def prefix(self, ctx, prefix):
         if not prefix:
-            await ctx.send(f"Текущий префикс - {self.client.command_prefix}")
+            await ctx.send(f"Current prefix - {self.client.command_prefix}")
         else:
             self.client.command_prefix = prefix
-            await ctx.send(f"Префикс изменен на {prefix}")
+            await ctx.send(f"Prefix changed to {prefix}")
 
 
 async def setup(client):
