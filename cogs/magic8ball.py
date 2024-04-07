@@ -13,14 +13,11 @@ class M8Ball(commands.Cog):
 
     @commands.command(aliases=['8ball', 'шар'])
     async def M8B(self, ctx, question):
-        print(question)
         if question:
             with open("assets/command_files/8ballresponces.txt", encoding="utf-8") as f:
                 responces = f.readlines()
                 await ctx.reply(f'Мой ответ - {random.choice(responces)}')
-            print(question)
-        elif len(question) == 0:
-            await ctx.reply('нахуй пошел')
+            
 
 async def setup(client):
     await client.add_cog(M8Ball(client))
