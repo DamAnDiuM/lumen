@@ -11,9 +11,11 @@ class M8Ball(commands.Cog):
     async def on_ready(self):
         print("8ball is ready")
 
-    @commands.command()
-    async def M8B(self, ctx):
-        ctx.send("work")
+    @commands.command(aliases=['8ball', 'шар'])
+    async def M8B(self, ctx, *, question):
+        with open("assets/command_files/8ballresponces.txt", encoding="utf-8") as f:
+            responces = f.readlines()
+            await ctx.send(f'Мой ответ - {random.choice(responces)}')
 
 
 async def setup(client):
