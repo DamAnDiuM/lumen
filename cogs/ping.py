@@ -7,7 +7,7 @@ class Ping(commands.Cog):
 
     @commands.Cog.listener()
     async def on_ready(self):
-        print("Ping.py is ready")
+        print("Ping is ready")
 
     @commands.command(aliases=['пинг'])
     async def ping(self, ctx):
