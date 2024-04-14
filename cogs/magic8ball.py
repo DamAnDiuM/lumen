@@ -16,7 +16,9 @@ class M8Ball(commands.Cog):
         if question:
             with open("assets/command_files/8ballresponces.txt", encoding="utf-8") as f:
                 responces = f.readlines()
-                await ctx.reply(f'Мой ответ - {random.choice(responces)}')
+                responce = random.choice(responces)
+                embed_message = discord.Embed(title=question, description=responce, color=discord.Color.purple())
+                await ctx.reply(embed = embed_message)
             
 
 async def setup(client):
