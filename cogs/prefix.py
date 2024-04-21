@@ -10,8 +10,8 @@ class Prefix(commands.Cog):
         print("Prefix is ready")
 
     @commands.command(aliases=['префикс'])
-    async def prefix(self, ctx, prefix):
-        if not prefix:
+    async def prefix(self, ctx, prefix=None):
+        if prefix is None: #  More accurate check
             await ctx.send(f"Current prefix - {self.client.command_prefix}")
         else:
             self.client.command_prefix = prefix

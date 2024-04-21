@@ -12,7 +12,7 @@ class M8Ball(commands.Cog):
         print("8ball is ready")
 
     @commands.command(aliases=['8ball', 'шар'])
-    async def M8B(self, ctx, question):
+    async def M8B(self, ctx, * ,question):
         if question:
             with open("assets/command_files/8ballresponces.txt", encoding="utf-8") as f:
                 responces = f.readlines()
