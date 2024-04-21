@@ -15,7 +15,7 @@ class Prefix(commands.Cog):
             await ctx.send(f"Current prefix - {self.client.command_prefix}")
         else:
             self.client.command_prefix = prefix
-            await ctx.send(f"Prefix changed to {prefix}")
+            await ctx.send(f"Prefix changed to \"{prefix}\"")
 
 
 async def setup(client):
