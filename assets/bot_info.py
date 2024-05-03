@@ -1,1 +1,1 @@
-bot_info = {'version': '0.0.4'}
+bot_info = {'version': '0.0.4', 'last_update' : ''}
