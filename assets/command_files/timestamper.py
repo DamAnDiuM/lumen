@@ -11,5 +11,3 @@ def timestamper(mode: str="D") -> str:
     local_time = f"{year}-{month}-{day} 00:00:00"
     epoch_time = datetime_to_epoch(local_time)
     return '<t:{}:{}>'.format(epoch_time, mode)
-
-print(timestamper())
