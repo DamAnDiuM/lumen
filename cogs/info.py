@@ -13,7 +13,7 @@ class info(commands.Cog):
 
     @commands.command(aliases=['инфо'])
     async def info(self, ctx):
-        embedMsg = discord.Embed(title="Информация", description=f'Бот для сигм\n\nversion {bot_info['version']}')
+        embedMsg = discord.Embed(title="Информация", description=f'Бот для сигм\n\nversion {bot_info['version']}\n\n last update {bot_info["last_update"]}')
         await ctx.send(embed=embedMsg)
 async def setup(client):
     await client.add_cog(info(client))
